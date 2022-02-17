@@ -46,5 +46,10 @@
 
             return numbersSum;
         }
+
+        public int Turing()
+        {
+            return 0;
+        }
     }
 }

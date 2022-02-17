@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>UNISA Online Exam Portal</h1>
+    <p class="lead">Online Exam Portal is an online platform were students can complete their exams online.</p>
+    <p>@*<a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a>*@</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>MCQ Exam</h2>
+        <p>
+            
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Mcq", "Home")">Start Exam</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Fill-in Exam</h2>
+        <p></p>
+        <p><a class="btn btn-default" href="@Url.Action("FillIn", "Home")">Start Exam</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Upload Exam</h2>
+        <p></p>
+        <p><a class="btn btn-default" href="@Url.Action("Upload", "Home")">Start Exam</a></p>
+    </div>
+</div>
+
+@if (!Request.IsAuthenticated)
+{
+    <!-- If the user is not authenticated, display the sign-in button -->
+    <a href="@Url.Action("SignIn", "Home")" style="text-decoration: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="300px" height="50px" viewBox="0 0 3278 522" class="SignInButton">
+        <style type="text/css">
+            .fil0:hover {
+                fill: #4B4B4B;
+            }
+
+            .fnt0 {
+                font-size: 260px;
+                font-family: 'Segoe UI Semibold', 'Segoe UI';
+                text-decoration: none;
+            }
+</style>
+        <rect class="fil0" x="2" y="2" width="3174" height="517" fill="black" />
+        <rect x="150" y="129" width="122" height="122" fill="#F35325" />
+        <rect x="284" y="129" width="122" height="122" fill="#81BC06" />
+        <rect x="150" y="263" width="122" height="122" fill="#05A6F0" />
+        <rect x="284" y="263" width="122" height="122" fill="#FFBA08" />
+        <text x="470" y="357" fill="white" class="fnt0">Sign in with Microsoft</text>
+        </svg>
+    </a>
+}
+else
+{
+    @*<span><br />Hello @ViewBag.Name</span>
+    <br />
+    <br />
+    @Html.ActionLink("See Your Claims", "Index", "Claims")
+    <br />
+    <br />
+    @Html.ActionLink("Sign out", "SignOut", "Home")*@
+}
+@if (!string.IsNullOrWhiteSpace(Request.QueryString["errormessage"]))
+{
+    <div style="background-color:red;color:white;font-weight: bold;">Error: @Request.QueryString["errormessage"]</div>
+}

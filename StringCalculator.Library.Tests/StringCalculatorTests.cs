@@ -98,5 +98,13 @@ namespace StringCalculator.Library.Tests
 
             Assert.AreEqual(3, result);
         }
+
+        [Test]
+        public void Turing()
+        {
+            var result = _calculator.Turing();
+
+            Assert.AreEqual(0, result);
+        }
     }
 }
